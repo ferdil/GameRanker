@@ -86,7 +86,7 @@ public class GameRanker {
        
         // Note that the ranking is done on points, then on name
         LinkedHashMap<String, Team> rankedTeams = theTeams.entrySet().stream()
-                .sorted(Map.Entry.<String, Team>comparingByValue(byPoints).thenComparing(Map.Entry.<String, Team>comparingByValue(byName)))
+                .sorted(Map.Entry.<String, Team>comparingByValue(byPoints).thenComparing(Map.Entry.<String, Team>comparingByValue(byName).reversed()))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
         ListIterator<Team> iterator = new ArrayList<Team>(rankedTeams.values()).listIterator(rankedTeams.size());
@@ -114,7 +114,7 @@ public class GameRanker {
 		// Extracts the score by reversing the string and re-reversing to get the actual score number
 		
 		gameInput.forEachRemaining(stringIn -> {
-			if (stringIn.length() == 0) {
+			if (stringIn.length() == 0 || stringIn.compareTo(".") == 0) {
 				return;
 			}
 			Scanner scanner = new Scanner(stringIn).useDelimiter(",");
