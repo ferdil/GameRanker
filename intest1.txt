@@ -1,0 +1,9 @@
+Lions 3, Snakes 2
+Tarantulas 1, FC Awesome 0
+Lions 1, FC Awesome 1
+Tarantulas 3, Snakes 1
+Lions 4, Grouches 0
+Super 49ers 6, Lions 3
+Grouches 0, Super 49ers 9
+
+
